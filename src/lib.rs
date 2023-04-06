@@ -19,6 +19,7 @@ pub async fn main(req: Request, env: Env, _ctx: worker::Context) -> Result<Respo
 
         // manifests
         .get_async("/v2/:pathname/:name/manifests/:reference", controllers::v2::manifest::get)
+        .head_async("/v2/:pathname/:name/manifests/:reference", controllers::v2::manifest::head)
         .put_async("/v2/:pathname/:name/manifests/:reference", controllers::v2::manifest::put)
         .delete_async("/v2/:pathname/:name/manifests/:reference", controllers::v2::manifest::delete)
 
